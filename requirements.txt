@@ -1,7 +1,10 @@
 # ============================================================
 # bilibili_learning_bot v3.1.2 依赖清单
 # ============================================================
-# ⚠️ 版本已锁定为开发者环境精确版本，保证兼容性。
+# ⚠️ 通用三方库使用兼容区间而非精确锁定，避免与 AstrBot 核心依赖约束
+#    冲突（核心会对 openai/httpx 等依赖做版本保护，精确锁定会被判定为
+#    降级或升级核心依赖而阻止安装，见 issues #18 / #20）。
+#    仅插件专属依赖（bilibili-api-python）保留精确版本。
 #
 # 🔧 Termux (Android) 用户：
 #    PyYAML 是 bilibili-api-python 的间接依赖，会由 pip 自动安装。
@@ -10,18 +13,21 @@
 #    然后再执行 pip install -r requirements.txt
 
 bilibili-api-python==17.4.1
-openai==2.33.0
-pydantic>=2.0.0
-httpx==0.28.1
-colorama==0.4.6
-qrcode==8.2
-qrcode-terminal==0.8
-Pillow==12.1.0
-pystray==0.19.5
-Flask==3.1.2
-flask-cors==6.0.2
-requests==2.32.5
-imageio-ffmpeg==0.6.0
+# openai 是 AstrBot 核心依赖（核心会锁定具体版本），这里只声明兼容区间，
+# 避免与核心版本约束冲突导致插件安装被拦截（见 issues #18 / #20）。
+# 插件仅使用 client.chat.completions.create 等 1.x 起稳定的 API。
+openai>=1.0.0,<4
+pydantic>=2.0.0,<3
+httpx>=0.26,<1
+colorama>=0.4.6,<1
+qrcode>=8.0,<9
+qrcode-terminal>=0.8,<1
+Pillow>=10.0,<13
+pystray>=0.19.5,<1
+Flask>=3.0,<4
+flask-cors>=6.0,<7
+requests>=2.31,<3
+imageio-ffmpeg>=0.6.0,<1
 yt-dlp>=2025.6.30
 python-docx>=1.1.2
 reportlab>=4.2.5
