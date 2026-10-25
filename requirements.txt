@@ -14,21 +14,28 @@
 #    插件仅使用其中稳定的公开 API（如 openai 的 client.chat.completions.create），
 #    不依赖核心未覆盖的版本特性。
 #
+#    Flask / flask-cors / requests 等不在核心 requirements.txt 中，但常被
+#    核心的间接依赖或其他插件引入。这里统一使用兼容区间而非精确锁定，
+#    避免核心升级时再次触发依赖保护拦截。
+#
+# 最低支持的核心版本见 metadata.yaml 的 astrbot_version: ">=4.16,<5"。
+# 在更旧的核心（未提供上述 7 个包）上安装时，插件初始化会输出明确的
+# 依赖缺失提示，建议升级 AstrBot 至 4.29.1 及以上。
+#
 # 🔧 Termux (Android) 用户：
 #    PyYAML 是 bilibili-api-python 的间接依赖，会由 pip 自动安装。
 #    如果遇到编译错误，请先运行：
 #      pkg install libyaml libyaml-dev python python-pip
 #    然后再执行 pip install -r requirements.txt
 
-bilibili-api-python==17.4.1
-colorama==0.4.6
-qrcode-terminal==0.8
-pystray==0.19.5
-Flask==3.1.2
-flask-cors==6.0.2
-requests==2.32.5
-imageio-ffmpeg==0.6.0
-# yt-dlp 上游更新频繁，不锁死小版本，避免频繁升级插件
+bilibili-api-python>=17.4.1,<18
+colorama>=0.4.6,<1
+qrcode-terminal>=0.8,<1
+pystray>=0.19.5,<1
+Flask>=3.0,<4
+flask-cors>=4.0,<7
+requests>=2.31,<3
+imageio-ffmpeg>=0.6.0,<1
 yt-dlp>=2025.6.30
 
 # Optional: ASR 语音识别

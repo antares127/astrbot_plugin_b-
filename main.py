@@ -24,6 +24,42 @@ from astrbot.api.event import filter, AstrMessageEvent
 from astrbot.api.star import Context, Star
 from astrbot.api import logger
 
+# AstrBot 核心提供的依赖（插件 requirements.txt 不再声明，见 issues #18/#20）。
+# 缺失时输出明确提示，避免用户只看到裸 ImportError。
+_CORE_PROVIDED_DEPENDENCIES = {
+    "openai": "openai",
+    "httpx": "httpx[socks]",
+    "qrcode": "qrcode",
+    "docx": "python-docx",
+    "reportlab": "reportlab",
+    "PIL": "pillow",
+}
+
+
+def _check_core_dependencies() -> list[str]:
+    """检查核心应提供的依赖是否可导入。
+
+    Returns:
+        list[str]: 缺失依赖的 pip 包名列表。
+    """
+    missing = []
+    for module_name, package_name in _CORE_PROVIDED_DEPENDENCIES.items():
+        try:
+            __import__(module_name)
+        except ImportError:
+            missing.append(package_name)
+    return missing
+
+
+_missing_core_deps = _check_core_dependencies()
+if _missing_core_deps:
+    logger.error(
+        "⚠️ 缺少 AstrBot 核心应提供的依赖: "
+        + ", ".join(_missing_core_deps)
+        + "。插件已不再声明这些包，请将 AstrBot 升级至 4.16 及以上"
+        "（推荐 4.29.1+）后重新安装插件。"
+    )
+
 # 导入原有模块（路径按实际情况调整）
 from cli.app import (
     _disclaimer_confirm, show_main_menu, show_mood_menu, show_config_menu,
