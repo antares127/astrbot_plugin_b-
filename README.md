@@ -136,6 +136,8 @@
 
 [作者插件群](https://qun.qq.com/universal-share/share?ac=1&authKey=g11r7YZ32NvsrmF6gs1p3jz%2FwPFaZvDqNTo2%2Bd1qJ0oi9QtKEUj48IuK%2BEYpJeVR&busi_data=eyJncm91cENvZGUiOiIxMDc1OTIwMzIzIiwidG9rZW4iOiJKbzdIbHRxVTV1OEovOG1MaVk2RWZMWkJvMjd3UVhNNktYOEViZVMrMDJ5bFEwa1lwRFlmdVBUUU4wTFkzRWsxIiwidWluIjoiMTczMTUzODMzNCJ9&data=Ee7Fzotcpdxp4NMkkSOCUWLBvNfkgreKTW5hcIg2_w337UccGjJgPcL-obkS2n6iraxtTqgDgZ1LxZ6UCfJY3Q&svctype=4&tempid=h5_group_info)
 
+tip:我的群仅供对插件功能有疑惑提问题，如果是bug或feat，请先提issue，谢谢！可以来群里问issue进度。
+
 #英文版
 # bilibili_learning_bot
 
@@ -260,3 +262,5 @@ On backup export, API Key / Cookie is desensitized to `[hidden]`; old versions w
 [MIT](LICENSE) © xiaoyaya191
 
 [my plugin group](https://qun.qq.com/universal-share/share?ac=1&authKey=g11r7YZ32NvsrmF6gs1p3jz%2FwPFaZvDqNTo2%2Bd1qJ0oi9QtKEUj48IuK%2BEYpJeVR&busi_data=eyJncm91cENvZGUiOiIxMDc1OTIwMzIzIiwidG9rZW4iOiJKbzdIbHRxVTV1OEovOG1MaVk2RWZMWkJvMjd3UVhNNktYOEViZVMrMDJ5bFEwa1lwRFlmdVBUUU4wTFkzRWsxIiwidWluIjoiMTczMTUzODMzNCJ9&data=Ee7Fzotcpdxp4NMkkSOCUWLBvNfkgreKTW5hcIg2_w337UccGjJgPcL-obkS2n6iraxtTqgDgZ1LxZ6UCfJY3Q&svctype=4&tempid=h5_group_info)
+
+tip:my plugin group  only can ask questions about plugin，if you find bugs or want feat,please issue first，thank you！you can enter my group to ask your issue's rate
